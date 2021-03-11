@@ -107,8 +107,8 @@ void forced_release(struct wacom_i2c *wac_i2c)
 	input_report_abs(wac_i2c->input_dev, ABS_X, wac_i2c->last_x);
 	input_report_abs(wac_i2c->input_dev, ABS_Y, wac_i2c->last_y);
 	input_report_abs(wac_i2c->input_dev, ABS_PRESSURE, 0);
-	input_report_key(wac_i2c->input_dev, BTN_STYLUS, 0);
-	input_report_key(wac_i2c->input_dev, BTN_TOUCH, 0);
+	input_report_key(wac_i2c->input_dev, BTN_RIGHT, 0);
+	input_report_key(wac_i2c->input_dev, BTN_LEFT, 0);
 #if defined(WACOM_IRQ_WORK_AROUND) || defined(WACOM_PDCT_WORK_AROUND)
 	input_report_key(wac_i2c->input_dev, BTN_TOOL_RUBBER, 0);
 	input_report_key(wac_i2c->input_dev, BTN_TOOL_PEN, 0);
@@ -992,9 +992,9 @@ int wacom_i2c_coord(struct wacom_i2c *wac_i2c)
 			input_report_abs(wac_i2c->input_dev,
 					 ABS_PRESSURE, pressure);
 			input_report_key(wac_i2c->input_dev,
-					 BTN_STYLUS, stylus);
+					 BTN_RIGHT, stylus);
 			if (!stylus && !wac_i2c->side_pressed) {
-				input_report_key(wac_i2c->input_dev, BTN_TOUCH, prox);
+				input_report_key(wac_i2c->input_dev, BTN_LEFT, prox);
 			}
 			input_report_key(wac_i2c->input_dev, wac_i2c->tool, 1);
 			if (wac_i2c->rdy_pdct) {
@@ -1083,8 +1083,8 @@ int wacom_i2c_coord(struct wacom_i2c *wac_i2c)
 			input_report_abs(wac_i2c->input_dev, ABS_X, x);
 			input_report_abs(wac_i2c->input_dev, ABS_Y, y);
 			input_report_abs(wac_i2c->input_dev, ABS_PRESSURE, 0);
-			input_report_key(wac_i2c->input_dev, BTN_STYLUS, 0);
-			input_report_key(wac_i2c->input_dev, BTN_TOUCH, 0);
+			input_report_key(wac_i2c->input_dev, BTN_RIGHT, 0);
+			input_report_key(wac_i2c->input_dev, BTN_LEFT, 0);
 			input_report_key(wac_i2c->input_dev, wac_i2c->tool, 1);
 			input_sync(wac_i2c->input_dev);
 		}
@@ -1113,8 +1113,8 @@ int wacom_i2c_coord(struct wacom_i2c *wac_i2c)
 			   ABS_Y, y); */
 
 			input_report_abs(wac_i2c->input_dev, ABS_PRESSURE, 0);
-			input_report_key(wac_i2c->input_dev, BTN_STYLUS, 0);
-			input_report_key(wac_i2c->input_dev, BTN_TOUCH, 0);
+			input_report_key(wac_i2c->input_dev, BTN_RIGHT, 0);
+			input_report_key(wac_i2c->input_dev, BTN_LEFT, 0);
 #if defined(WACOM_PDCT_WORK_AROUND)
 			input_report_key(wac_i2c->input_dev,
 				BTN_TOOL_RUBBER, 0);
